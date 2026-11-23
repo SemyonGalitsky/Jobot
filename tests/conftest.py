@@ -1,4 +1,4 @@
-from cv.resume import ResumeBank, Header, EntrySection, Entry, TextItem, SectionKind, TextSection, ListSection, ItemGroup
+from cv.resume import ResumeBank, Header, EntrySection, Entry, TextItem, BulletPoint, SectionKind, TextSection, ListSection, ItemGroup
 from cv.profiles import TargetProfiles, TargetProfile, SectionRule, ContentMode, SectionState
 import pytest
 @pytest.fixture
@@ -21,9 +21,20 @@ def sample_bank():
                 entries = [
                     Entry(
                         titles=[TextItem(text = "NOC Technician")],
-                        bullets=[TextItem(text = "Monitored network devices"),
-                                 TextItem(text = "Maintained Secuirty across 12 different facilities")
-                                 ],
+                        bullets = [
+                            BulletPoint(
+                                variants = [
+                                    TextItem(text = "Monitored network devices across 12 different facilities"),
+                                    TextItem(text = "Maintained Secuirty across 12 different facilities")
+                                ]
+                            ),
+                            BulletPoint(
+                                variants = [
+                                    TextItem(text = "Worked around the clock managing security risks"),
+                                    TextItem(text = "Facilitated constant stability around the clock")
+                                ]
+                            ),
+                        ]
                     )
                 ]
             ),

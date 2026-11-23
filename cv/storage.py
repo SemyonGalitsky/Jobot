@@ -21,7 +21,9 @@ def file_for(model_type: type[BaseModel], folder: Path):
 def save_to_json(obj: BaseModel, folder: Path):
     folder.mkdir(parents = True, exist_ok = True)
     file = file_for(type(obj), folder)
-    file.write_text(obj.model_dump_json(indent = 2), encoding = 'utf-8')
+    tmp = file.with_name(file.name + ".temp")
+    tmp.write_text(obj.model_dump_json(indent = 2), encoding = 'utf-8')
+    tmp.replace(file)
 
 def load_from_json(model_type: type[T], folder: Path):
     file = file_for(model_type, folder)
