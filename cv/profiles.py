@@ -1,5 +1,7 @@
-from pydantic import BaseModel, Field, model_validator
 from enum import StrEnum
+
+from pydantic import BaseModel, Field, model_validator
+
 from cv.id_generator import IdGenerator
 
 

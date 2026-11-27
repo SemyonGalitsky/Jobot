@@ -1,4 +1,3 @@
-from cv.profiles import TargetProfiles
 
 def test_round_trip_profiles(sample_profiles):
     json_text = sample_profiles.model_dump_json()

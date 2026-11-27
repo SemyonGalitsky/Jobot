@@ -1,6 +1,26 @@
-from cv.resume import ResumeBank, Header, EntrySection, Entry, TextItem, BulletPoint, SectionKind, TextSection, ListSection, ItemGroup
-from cv.profiles import TargetProfiles, TargetProfile, SectionRule, ContentMode, SectionState
 import pytest
+
+from cv.profiles import (
+    ContentMode,
+    SectionRule,
+    SectionState,
+    TargetProfile,
+    TargetProfiles,
+)
+from cv.resume import (
+    BulletPoint,
+    Entry,
+    EntrySection,
+    Header,
+    ItemGroup,
+    ListSection,
+    ResumeBank,
+    SectionKind,
+    TextItem,
+    TextSection,
+)
+
+
 @pytest.fixture
 def sample_bank():
     return ResumeBank(
@@ -25,7 +45,7 @@ def sample_bank():
                             BulletPoint(
                                 variants = [
                                     TextItem(text = "Monitored network devices across 12 different facilities"),
-                                    TextItem(text = "Maintained Secuirty across 12 different facilities")
+                                    TextItem(text = "Maintained Security across 12 different facilities")
                                 ]
                             ),
                             BulletPoint(

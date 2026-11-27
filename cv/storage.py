@@ -1,9 +1,10 @@
-from cv.profiles import TargetProfiles
-
-from cv.resume import ResumeBank
 from pathlib import Path
-from pydantic import BaseModel
 from typing import TypeVar
+
+from pydantic import BaseModel
+
+from cv.profiles import TargetProfiles
+from cv.resume import ResumeBank
 
 T = TypeVar('T', bound = BaseModel)
 

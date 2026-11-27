@@ -1,4 +1,5 @@
-from cv.resume import ResumeBank, EntrySection, TextSection, ListSection
+from cv.resume import EntrySection, ListSection, ResumeBank, TextSection
+
 
 def test_round_trip_keeps_all_sections(sample_bank):
     json_text = sample_bank.model_dump_json()

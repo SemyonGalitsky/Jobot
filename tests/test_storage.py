@@ -1,7 +1,9 @@
-from cv.storage import save_to_json, load_from_json
+import pytest
+
 from cv.profiles import TargetProfiles
 from cv.resume import ResumeBank
-import pytest
+from cv.storage import load_from_json, save_to_json
+
 
 def test_round_trip_save_and_load_bank(sample_bank, tmp_path):
     save_to_json(sample_bank, tmp_path)

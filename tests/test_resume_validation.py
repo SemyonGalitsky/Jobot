@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from cv.resume import TextItem, BulletPoint, Entry, YearMonth, Origin
+from cv.resume import BulletPoint, Entry, Origin, TextItem, YearMonth
 
 
 def test_text_item_rejects_empty_text():

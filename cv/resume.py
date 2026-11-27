@@ -1,7 +1,10 @@
-from pydantic import BaseModel, Field, model_validator
-from typing import Literal, Annotated
 from enum import StrEnum
+from typing import Annotated, Literal
+
+from pydantic import BaseModel, Field, model_validator
+
 from cv.id_generator import IdGenerator
+
 
 class SectionKind(StrEnum):
     SUMMARY             = 'summary'
@@ -88,9 +91,13 @@ class Entry(BaseModel):
                 raise ValueError("Impossible dates")
             if bool(self.start.month) != bool(self.end.month):
                 raise ValueError("Months are set for either or neither dates")
-            if self.start.month and self.end.month:
-                if (self.start.year == self.end.year) and (self.start.month > self.end.month):
-                    raise ValueError("Impossible dates")
+            if (
+                self.start.month
+                and self.end.month
+                and self.start.year == self.end.year
+                and self.start.month > self.end.month
+            ):
+                raise ValueError("Impossible dates")
         return self
 
 class Section(BaseModel):
